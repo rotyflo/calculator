@@ -47,6 +47,7 @@ function onPress(button, val) {
 
       case equals:
         if (lastChar.match(operators)) current = current.slice(0, -1);
+        current = current.replace(/^([0-9]\+|\-|\*|\/|\.)/g, "");
         output.innerText = eval(current);
         break;
 
