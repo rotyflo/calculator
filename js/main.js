@@ -17,7 +17,8 @@ const buttons = {
   divide: "/",
   equals: "",
   point: "",
-  del: "",
+  plusmin: "",
+  percent: "",
   clear: ""
 };
 let output = document.getElementById("output");
@@ -41,13 +42,20 @@ function onPress(button, val) {
         output.innerText = "0";
         break;
 
-      case del:
-        output.innerText = current.length === 1 ? "0" : current.slice(0, -1);
+      case plusmin:
+        output.innerText = current[0] === "-" ? current.slice(1) : "-" + current;
+        break;
+
+      // BUG: adds too many decimal places if selected in succession
+      case percent:
+        output.innerText = current / 100;
+        current = output.innerText;
         break;
 
       case equals:
         if (lastChar.match(operators)) current = current.slice(0, -1);
-        current = current.replace(/^([0-9]\+|\-|\*|\/|\.)/g, "");
+        // BUG: keeps other letters and symbols from being evaluated, but disables negative numbers
+        // current = current.replace(/^([0-9]\+|\-|\*|\/|\.)/g, "");
         output.innerText = eval(current);
         break;
 
