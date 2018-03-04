@@ -5,3 +5,7 @@ body {
 #output {
   font-size: 36px;
 }
+
+.btn {
+  font-weight: bold;
+}
