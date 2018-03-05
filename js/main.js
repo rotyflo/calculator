@@ -30,6 +30,9 @@ for (let i = 0, keys = Object.keys(buttons); i < keys.length; i++) {
   onPress(button, val);
 }
 
+let equation = "";
+let currentOperator = "";
+
 function onPress(button, val) {
   button.addEventListener("click", function () {
     let operators = /\+|\-|\*|\//;
@@ -40,23 +43,31 @@ function onPress(button, val) {
     switch (button) {
       case clear:
         output.innerText = "0";
+        if (current === "0") {
+          equation = "";
+          currentOperator = "";
+        }
         break;
 
       case plusmin:
         output.innerText = current[0] === "-" ? current.slice(1) : "-" + current;
         break;
 
-      // BUG: adds too many decimal places if selected in succession
       case percent:
-        output.innerText = current / 100;
+        // roundTo: 2 is hundredths, 4 is millionths, etc
+        let roundTo = current.indexOf(".") === -1 ? 2 : current.length - current.indexOf(".") + 1;
+        output.innerText = (current / 100).toFixed(roundTo);
         current = output.innerText;
         break;
 
       case equals:
-        if (lastChar.match(operators)) current = current.slice(0, -1);
+        // NOTE: might not need this line
+        // if (lastChar.match(operators)) current = current.slice(0, -1);
         // BUG: keeps other letters and symbols from being evaluated, but disables negative numbers
         // current = current.replace(/^([0-9]\+|\-|\*|\/|\.)/g, "");
-        output.innerText = eval(current);
+        equation += current;
+        output.innerText = eval(equation);
+        equation = "";
         break;
 
       case point:
@@ -73,11 +84,11 @@ function onPress(button, val) {
       case add:
       case multiply:
       case divide:
+      currentOperator = val;
+
         if (current !== "0" && lastChar.match(/[0-9]/)) {
-          output.innerText += val;
-        }
-        else if (lastChar.match(operators)) {
-          output.innerText = current.slice(0, -1) + val;
+          equation += current;
+          output.innerText = "0";
         }
         break;
 
@@ -92,6 +103,8 @@ function onPress(button, val) {
         break;
 
       default:
+        equation += currentOperator;
+        currentOperator = "";
         output.innerText = current === "0" ? val : current + val;
     }
   });
