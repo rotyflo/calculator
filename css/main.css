@@ -1,11 +1,7 @@
-body {
-  max-width: 800px;
-}
-
 #output {
-  font-size: 36px;
+  font-size: 4vw;
 }
 
 .btn {
-  font-weight: bold;
+  font-size: 3vw;
 }
