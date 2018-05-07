@@ -17,7 +17,7 @@ const buttons = {
   divide: "/",
   equals: "",
   point: "",
-  plusmin: "",
+  del: "",
   percent: "",
   clear: ""
 };
@@ -30,9 +30,6 @@ for (let i = 0, keys = Object.keys(buttons); i < keys.length; i++) {
   onPress(button, val);
 }
 
-let equation = "";
-let currentOperator = "";
-
 function onPress(button, val) {
   button.addEventListener("click", function () {
     let operators = /\+|\-|\*|\//;
@@ -43,31 +40,24 @@ function onPress(button, val) {
     switch (button) {
       case clear:
         output.innerText = "0";
-        if (current === "0") {
-          equation = "";
-          currentOperator = "";
-        }
         break;
 
-      case plusmin:
-        output.innerText = current[0] === "-" ? current.slice(1) : "-" + current;
+      case del:
+        output.innerText = current.length === 1 ? "0" : current.slice(0, -1);
         break;
 
       case percent:
         // roundTo: 2 is hundredths, 4 is millionths, etc
         let roundTo = current.indexOf(".") === -1 ? 2 : current.length - current.indexOf(".") + 1;
+
         output.innerText = (current / 100).toFixed(roundTo);
-        current = output.innerText;
+        //current = output.innerText;
         break;
 
       case equals:
-        // NOTE: might not need this line
-        // if (lastChar.match(operators)) current = current.slice(0, -1);
-        // BUG: keeps other letters and symbols from being evaluated, but disables negative numbers
-        // current = current.replace(/^([0-9]\+|\-|\*|\/|\.)/g, "");
-        equation += current;
-        output.innerText = eval(equation);
-        equation = "";
+        output.innerText = eval(current);
+
+        if (current === "Infinity" || current === "-Infinity") output.innerText = "Undefined";
         break;
 
       case point:
@@ -80,31 +70,20 @@ function onPress(button, val) {
         break;
 
       case subtract:
-        if (current === "0") output.innerText = val;
+        if (current === "0") {
+          output.innerText = "-";
+          break;
+        }
       case add:
       case multiply:
       case divide:
-      currentOperator = val;
-
-        if (current !== "0" && lastChar.match(/[0-9]/)) {
-          equation += current;
-          output.innerText = "0";
+        if (current === "-" || current === "0") break;
+        else if (lastChar.match(operators) || lastChar.match(/\./)) {
+          output.innerText = current.slice(0, -1) + val;
+          break;
         }
-        break;
-
-      case zero:
-        for (let i = current.length - 1; i >= 0; i--) {
-          if (current[i].match(operators)) break;
-          else if (current[i].match(/[1-9]|\./)) {
-            output.innerText += "0";
-            break;
-          }
-        }
-        break;
 
       default:
-        equation += currentOperator;
-        currentOperator = "";
         output.innerText = current === "0" ? val : current + val;
     }
   });
