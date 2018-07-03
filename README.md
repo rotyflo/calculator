@@ -46,10 +46,10 @@ Fulfill the below user stories and get all of the tests to pass. Give it your ow
 
 ## Setup
 
-First Method (Remote)
-* Go to https://rotyflo.github.io/javascript-calculator/
+REMOTE
+* Go to https://rotyflo.github.io/js-calc/
 
-Second Method (Local)
+LOCAL
 * Clone this repository (or download and extract zip file)
 * Open index.html in your browser
 
