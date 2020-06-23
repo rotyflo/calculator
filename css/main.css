@@ -1,7 +1,27 @@
-#output {
-  font-size: 4vw;
+body {
+  margin: auto;
+  text-align: center;
 }
 
-.btn {
-  font-size: 3vw;
+#output {
+  font-size: 32px;
+  font-family: sans-serif;
+  border: 2px solid black;
+  border-radius: 16px;
+  max-width: 430px;
+  margin: 16px auto;
+  padding: 16px;
+  text-align: right;
+}
+
+button {
+  border: 2px solid black;
+  border-radius: 16px;
+  box-shadow: 2px 2px;
+  width: 20vw;
+  max-width: 100px;
+  height: 15vw;
+  max-height: 75px;
+  margin: 4px;
+  font-size: 24px;
 }
