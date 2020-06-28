@@ -24,9 +24,20 @@ let allowedKeys = [
   "0"
 ];
 
+window.onclick = function(e) {
+  let key = e.target.value;
+
+  process(key);
+}
+
 document.addEventListener("keydown", function(e) {
-  let display = output.innerText;
   let key = e.key;
+
+  process(key);
+});
+
+function process(key) {
+  let display = output.innerText;
 
   if (allowedKeys.indexOf(key) !== -1) {
     switch (key) {
@@ -59,11 +70,7 @@ document.addEventListener("keydown", function(e) {
         output.innerText = display === "0" ? key : display + key;
     }
   }
-});
-
-document.getElementById("clear").addEventListener("click", clear);
-document.getElementById("percentify").addEventListener("click", percentify);
-document.getElementById("solve").addEventListener("click", solve);
+}
 
 function clear() {
   output.innerText = "0";
@@ -74,7 +81,6 @@ function percentify() {
   let roundTo = current.indexOf(".") === -1 ? 2 : current.length - current.indexOf(".") + 1;
 
   output.innerText = (current / 100).toFixed(roundTo);
-  //current = output.innerText;
 }
 
 function solve() {
