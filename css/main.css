@@ -1,5 +1,6 @@
 body {
-  padding: 8px;
+  padding: 8px 0px;
+  margin: 0px;
 }
 
 .calculator {
@@ -50,13 +51,24 @@ button:active {
   .calculator {
     border: 0px;
     box-shadow: 0px 0px;
+    padding: 0px;
+    margin: 0px auto;
   }
 
   button {
-    width: 21%;
+    width: 22%;
+    margin: 2px 0px;
+    padding: 0px;
+    box-shadow: 0px 0px;
+    border-radius: 0px;
   }
 
   #clear, #zero {
     width: 45%;
+  }
+
+  #output {
+    border: 0px;
+    border-radius: 0px;
   }
 }
