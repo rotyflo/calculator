@@ -1,4 +1,4 @@
-# JavaScript Calculator
+# Calculator
 
 #### Calculator made with JavaScript, 2018.05.06
 
@@ -47,7 +47,7 @@ Fulfill the below user stories and get all of the tests to pass. Give it your ow
 ## Setup
 
 REMOTE
-* Go to https://rotyflo.github.io/js-calc/
+* Go to https://rotyflo.github.io/calculator/
 
 LOCAL
 * Clone this repository (or download and extract zip file)
