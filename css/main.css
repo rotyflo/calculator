@@ -1,3 +1,42 @@
+@import url("https://rotyflo.github.io/css/terminal.css");
+
+body {
+  text-align: center;
+}
+
+h1 {
+  display: inline-block;
+}
+
+button {
+  height: 75px;
+  width: 75px;
+  border: solid black 1px;
+  font-size: large;
+  background-color: #fff;
+}
+
+#clear {
+  border-color: red;
+  color: red;
+}
+
+button:active {
+  border-right: 0 solid;
+  border-bottom: 0 solid;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+#output {
+  font-size: x-large;
+}
+
+#solve, #clear {
+  width: 156px;
+}
+
+/* 
 body {
   padding: 8px 0px;
   margin: 0px;
@@ -71,4 +110,4 @@ button:active {
     border: 0px;
     border-radius: 0px;
   }
-}
+} */
