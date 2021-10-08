@@ -46,6 +46,7 @@ function process(key) {
         break;
 
       case "%":
+        if (output.innerText.length > 16) return; // keep from leaking
         percentify();
         break;
 
@@ -67,6 +68,7 @@ function process(key) {
         if (checkForBreakage(key) === "break") break;
 
       default:
+        if (output.innerText.length > 16) return; // keep from leaking
         output.innerText = display === "0" ? key : display + key;
     }
   }
