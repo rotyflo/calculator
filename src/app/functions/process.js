@@ -35,8 +35,8 @@ const process = (key) => {
         if (checkForBreakage(key) === "break") break;
 
       default:
-        if (output.innerText.length > 16) return; // keep from leaking
-        output.innerText = display === "0" ? key : display + key;
+        if (output.innerText.length > 16) return display; // keep from leaking
+        return display === "0" ? key : display + key;
     }
 }
 
