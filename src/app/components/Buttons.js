@@ -2,10 +2,6 @@ import React from "react";
 import Button from "./Button";
 
 export default class Buttons extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		let process = this.props.process;
 
