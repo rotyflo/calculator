@@ -1,4 +1,3 @@
-import clear from "./clear";
 import percentify from "./percentify";
 import solve from "./solve";
 import decimate from "./decimate";
@@ -11,8 +10,7 @@ const process = (key) => {
 
     switch (key) {
       case "C":
-        clear();
-        break;
+        return "0";
 
       case "%":
         if (output.innerText.length > 16) return; // keep from leaking
