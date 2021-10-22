@@ -1,10 +1,7 @@
-const solve = () => {
-  let output = document.getElementById("output");
-  let current = output.innerText;
-
-  output.innerText = eval(current);
-
-  if (current === "Infinity" || current === "-Infinity") output.innerText = "Undefined";
+const solve = (output) => {
+  let solvedOutput = eval(output);
+  if (output === "Infinity" || output === "-Infinity") solvedOutput = "Undefined";
+  return solvedOutput;
 }
 
 export default solve;

@@ -13,7 +13,7 @@ export default class App extends React.Component {
   }
 
   handleClick = (input) => {
-    let newOutput = process(input);
+    let newOutput = process(input, this.state.output);
     this.setState({
       output: newOutput
     });
@@ -22,8 +22,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div class="calculator">
-        <Output output={this.state.output}/>
-        <Buttons process={this.handleClick}/>
+        <Output output={this.state.output} />
+        <Buttons process={this.handleClick} />
       </div>
     );
   }
