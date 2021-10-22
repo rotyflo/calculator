@@ -1,6 +1,6 @@
-import percentify from "./percentify";
+import handlePercent from "./handlePercent";
 import solve from "./solve";
-import addDecimal from "./addDecimal";
+import handleDecimal from "./handleDecimal";
 import handleOperator from "./handleOperator";
 
 const process = (key, output) => {
@@ -11,14 +11,14 @@ const process = (key, output) => {
 
       case "%":
         if (output.length > 16) return output; // keep from leaking
-        return percentify(output);
+        return handlePercent(output);
 
       case "Enter":
       case "=":
         return solve(output);
 
       case ".":
-        return addDecimal(output);
+        return handleDecimal(output);
 
       case "+":
       case "*":

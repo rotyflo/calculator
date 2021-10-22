@@ -12,8 +12,8 @@ export default class App extends React.Component {
     }
   }
 
-  handleClick = (input) => {
-    let newOutput = process(input, this.state.output);
+  handleClick = (key) => {
+    let newOutput = process(key, this.state.output);
     this.setState({
       output: newOutput
     });
