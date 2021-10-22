@@ -1,9 +1,7 @@
-import isOperator from "./isOperator";
+import endsWithOperator from "./endsWithOperator";
 
 const solve = (output) => {
-  let lastChar = output.slice(-1);
-
-  if (isOperator(lastChar)) {
+  if (endsWithOperator(output)) {
     return output;
   }
   else if (output === "Infinity" || output === "-Infinity") {
