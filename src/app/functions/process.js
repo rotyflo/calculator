@@ -1,8 +1,7 @@
 import percentify from "./percentify";
 import solve from "./solve";
 import addDecimal from "./addDecimal";
-import makeNegativeIfZero from "./makeNegativeIfZero";
-import checkForBreakage from "./checkForBreakage";
+import handleOperator from "./handleOperator";
 
 const process = (key, output) => {
   if (!output) return "0"; // <<== hacky bug fix, address soon
@@ -21,13 +20,11 @@ const process = (key, output) => {
       case ".":
         return addDecimal(output);
 
-      case "-":
-        if (makeNegativeIfZero() === "break") return output;
-
       case "+":
       case "*":
       case "/":
-        if (checkForBreakage(key) === "break") return output;
+      case "-":
+        return handleOperator(key, output);
 
       default:
         if (output.length > 16) return output; // keep from leaking
