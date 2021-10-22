@@ -1,11 +1,11 @@
 import percentify from "./percentify";
 import solve from "./solve";
-import decimate from "./decimate";
+import addDecimal from "./addDecimal";
 import makeNegativeIfZero from "./makeNegativeIfZero";
 import checkForBreakage from "./checkForBreakage";
 
 const process = (key, output) => {
-  if (!output) return "0";
+  if (!output) return "0"; // <<== hacky bug fix, address soon
     switch (key) {
       case "C":
         return "0";
@@ -19,8 +19,7 @@ const process = (key, output) => {
         return solve(output);
 
       case ".":
-        decimate();
-        break;
+        return addDecimal(output);
 
       case "-":
         if (makeNegativeIfZero() === "break") return output;
