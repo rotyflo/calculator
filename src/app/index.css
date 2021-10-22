@@ -17,10 +17,7 @@ button {
 }
 
 button:active {
-  border-right: 0 solid;
-  border-bottom: 0 solid;
-  border-top: 2px solid;
-  border-left: 2px solid;
+  border: 2px solid;
 }
 
 button:hover {
