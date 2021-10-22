@@ -1,9 +1,5 @@
 const addDecimal = (output) => {
-  if (output.lastIndexOf(".") === -1) {
-    return output + ".";
-  }
-
-  return output;
+  return output.includes(".") ? output : output + ".";
 }
 
 export default addDecimal;
