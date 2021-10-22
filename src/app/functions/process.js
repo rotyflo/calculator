@@ -12,8 +12,7 @@ const process = (key, output) => {
 
       case "%":
         if (output.length > 16) return output; // keep from leaking
-        percentify();
-        break;
+        return percentify(output);
 
       case "Enter":
       case "=":
