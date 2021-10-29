@@ -1,4 +1,3 @@
-import './index.css';
 import process from './functions/process';
 import Output from './components/Output';
 import React from 'react';
