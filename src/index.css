@@ -15,10 +15,6 @@ button {
 }
 
 button:active {
-  border: 2px solid;
-}
-
-button:hover {
   background-color: #eeeeee;
 }
 
@@ -45,4 +41,9 @@ button:hover {
 
 #solve, #clear {
   width: 150px;
+}
+
+.selected-button {
+  border: 3px solid;
+
 }
