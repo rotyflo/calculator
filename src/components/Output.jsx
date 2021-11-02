@@ -3,8 +3,8 @@ import React from "react";
 export default class Output extends React.Component {
 	render() {
 		return (
-			<div id="output-container">
-				<p id="output">{this.props.output}</p>
+			<div id="display-container">
+				<p id="display">{this.props.output}</p>
 			</div>
 		);
 	}

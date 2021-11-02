@@ -33,9 +33,9 @@ class Buttons extends React.Component {
 					onClick={() => this.props.handleOperator('+')} 
 					className={this.props.operator === '+' ? 'selected-button' : ''}>+</button>
 
-				<button id="decimate" value="." onClick={this.props.handleDecimal}>.</button>
 				<button id="zero" value="0" onClick={() => this.props.handleNumber('0')}>0</button>
-				<button id="solve" value="=" onClick={this.props.solve}>=</button>
+				<button id="decimal" value="." onClick={this.props.handleDecimal}>.</button>
+				<button id="equals" value="=" onClick={this.props.solve}>=</button>
 			</div>
 		);
 	}
