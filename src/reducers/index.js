@@ -20,7 +20,6 @@ export default function calculatorReducer(state = defaultState, action) {
 	let isOperating = state.operator !== '';
 	let isNegative = state.output[0] === '-';
 	let hasOperated = state.previous.operator !== null;
-	let outputIsMinus = state.output === '-';
 
 	switch (action.type) {
 		case types.HANDLE_NUMBER:
@@ -28,12 +27,6 @@ export default function calculatorReducer(state = defaultState, action) {
 			let inputIsZero = action.number === '0';
 
 			if (isOperating) {
-				if (outputIsMinus) {
-					return Object.assign({}, state, {
-						output: '-' + action.number,
-						operator: ''
-					});
-				}
 				return Object.assign({}, state, {
 					output: action.number,
 					operator: ''
