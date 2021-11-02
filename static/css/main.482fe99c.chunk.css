@@ -1,0 +1,2 @@
+body{text-align:center}h1{display:inline-block}button{height:75px;width:75px;border:1px solid #000;font-size:x-large;background-color:#fff}button:active{background-color:#eee}.calculator{border:1px solid #000;width:302px;margin:30px auto auto}#display-container{display:flex;align-items:center;text-align:right;font-size:x-large;border:1px solid #000;height:75px;width:300px}#display{margin:auto}#clear,#zero{width:150px}.selected-button{border:3px solid}
+/*# sourceMappingURL=main.482fe99c.chunk.css.map */
