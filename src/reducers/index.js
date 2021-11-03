@@ -24,9 +24,6 @@ export default function calculatorReducer(state = defaultState, action) {
 
 	switch (action.type) {
 		case types.HANDLE_NUMBER:
-			let nextNumber = isZero ? action.number : state.output + action.number;
-			let inputIsZero = action.number === '0';
-
 			if (isOperating) {
 				if (outputIsMinus) {
 					return Object.assign({}, state, {
@@ -40,16 +37,17 @@ export default function calculatorReducer(state = defaultState, action) {
 				});
 			}
 
+			let inputIsZero = action.number === '0';
 			if (isTooLong || (isZero && inputIsZero)) return state;
 			
+			let nextNumber = isZero ? action.number : state.output + action.number;
 			return Object.assign({}, state, { output: nextNumber });
 
 		case types.HANDLE_OPERATOR:
-			let inputIsMinus = action.operator === '-';
-
-			console.log(state.previous.number + ' ' + state.previous.operator + ' ' + state.output);
+			// console.log(state.previous.number + ' ' + state.previous.operator + ' ' + state.output);
 
 			if (isOperating) {
+				let inputIsMinus = action.operator === '-';
 				if (inputIsMinus) {
 					if (isNegative) {
 						return Object.assign({}, state, { output: output.slice(1), minusUsedAfterOperator: false });
@@ -74,7 +72,6 @@ export default function calculatorReducer(state = defaultState, action) {
 				let result = 0;
 				let firstNum = Number(state.previous.number);
 				let secondNum = Number(state.output);
-
 				switch (state.previous.operator) {
 					case '*':
 						result = firstNum * secondNum;
@@ -92,8 +89,8 @@ export default function calculatorReducer(state = defaultState, action) {
 						result = 'error';
 				}
 				result = result.toString();
-				let resultIsTooLong = result.length > 18;
 
+				let resultIsTooLong = result.length > 18;
 				if (resultIsTooLong) result = result.slice(0, 18);
 
 				return Object.assign({}, state, {
@@ -127,16 +124,15 @@ export default function calculatorReducer(state = defaultState, action) {
 			});
 
 		case types.SOLVE:
-			let result = 0;
-			let firstNum = Number(state.previous.number);
-			let secondNum = Number(state.output);
-
-			console.log(state.previous.number + ' ' + state.previous.operator + ' ' + state.output);
+			// console.log(state.previous.number + ' ' + state.previous.operator + ' ' + state.output);
 
 			if (state.previous.number === null || state.previous.operator === null) {
 				return state;
 			}
 
+			let result = 0;
+			let firstNum = Number(state.previous.number);
+			let secondNum = Number(state.output);
 			switch (state.previous.operator) {
 				case '*':
 					result = firstNum * secondNum;
