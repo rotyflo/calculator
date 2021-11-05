@@ -5,7 +5,7 @@ An easy-to-use calculator in your browser
 
 ## How To Run
 ### Online
-Go to [rtflores.com/calculator](rotyflo.github.io/calculator)
+Go to [the web app](https://rotyflo.github.io/calculator)
 
 ### Locally
 ```
