@@ -1,3 +1,31 @@
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--global-font-size: 15px !important;
+		--global-line-height: 1.4em !important;
+		--global-space: 10px !important;
+		--font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+		  DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+		  serif !important;
+		--mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+		  DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+		  serif !important;
+		--background-color: #222225 !important;
+		--page-width: 60em !important;
+		--font-color: #e8e9ed !important;
+		--invert-font-color: #222225 !important;
+		--secondary-color: #a3abba !important;
+		--tertiary-color: #a3abba !important;
+		--primary-color: #62c4ff !important;
+		--error-color: #ff3c74 !important;
+		--progress-bar-background: #3f3f44 !important;
+		--progress-bar-fill: #62c4ff !important;
+		--code-bg-color: #3f3f44 !important;
+		--input-style: solid !important;
+		--display-h1-decoration: none !important;
+	  }
+}
+
 body {
   text-align: center;
 }
@@ -9,17 +37,18 @@ h1 {
 button {
   height: 75px;
   width: 75px;
-  border: solid black 1px;
+  border: solid var(--font-color) 1px;
   font-size: x-large;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--font-color);
 }
 
 button:active {
-  background-color: #eeeeee;
+  background-color: var(--code-bg-color);
 }
 
 .calculator {
-  border: solid black 1px;
+  border: solid var(--font-color) 1px;
   width: 302px;
   margin: auto;
   margin-top: 30px;
@@ -30,7 +59,7 @@ button:active {
   align-items: center;
   text-align: right;
   font-size: x-large;
-  border: solid black 1px;
+  border: solid var(--font-color) 1px;
   height: 75px;
   width: 300px;
 }
@@ -45,5 +74,4 @@ button:active {
 
 .selected-button {
   border: 3px solid;
-
 }
